@@ -1,6 +1,7 @@
-from Reading.ReadingDraft.Utils import mysql
-from Reading.ReadingDraft.pojo import table
-from Reading.ReadingDraft.Utils import utils
+from Reading.Utils import mysql
+from Reading.pojo import table
+
+
 # 将查询结果转化为Calibration对象
 def sql_To_Calibration( rows ):
     list = []

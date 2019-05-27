@@ -1,6 +1,7 @@
-from Reading.ReadingDraft.dao import Place_Dao
+from Reading.dao import Place_Dao
 import time
-from Reading.ReadingDraft.service import Calibration_Service
+from Reading.dao import Place_Dao
+
 
 # 调用reading_start即可每隔一分钟识别所有地点的水尺图像
 

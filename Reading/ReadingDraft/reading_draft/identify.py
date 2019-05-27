@@ -1,10 +1,11 @@
-from skimage import data,filters,color,io,feature,measure,transform,draw
-import skimage.morphology as sm
-from skimage.morphology import disk
-import skimage.filters.rank as sfr
 import scipy.misc
+import skimage.filters.rank as sfr
+import skimage.morphology as sm
+from skimage import filters, color, io, measure, transform
+from skimage.morphology import disk
+
 from Reading.ReadingDraft.reading_draft import measure_label as ml
-from Reading.ReadingDraft.pojo import table
+
 
 # 根据image对象读取刻度
 def get_calibration(image, max_num):

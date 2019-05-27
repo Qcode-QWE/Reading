@@ -1,10 +1,12 @@
 import datetime
+
 from Reading.ReadingDraft.reading_draft import identify
-from Reading.ReadingDraft.dao import Image_Dao
-from Reading.ReadingDraft.dao import Calibration_Dao
-from Reading.ReadingDraft.pojo import table
-import time
-from Reading.ReadingDraft.Utils import utils
+from Reading.Utils import utils
+from Reading.dao import Calibration_Dao
+from Reading.dao import Image_Dao
+from Reading.pojo import table
+
+
 # 根据image,place来读取刻度
 def get_calibration( image, place):
     cal = identify.get_calibration(image, place.max_num)
