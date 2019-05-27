@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from Reading.controller import view_controller
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('index/', view_controller.index)
 ]
