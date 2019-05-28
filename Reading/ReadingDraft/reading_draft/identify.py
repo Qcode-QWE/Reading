@@ -9,8 +9,8 @@ from Reading.ReadingDraft.reading_draft import measure_label as ml
 
 # 根据image对象读取刻度
 def get_calibration(image, max_num):
-    #address = 'D:/USER/Desktop/软件工程/水尺2.jpg'
-    address = image.path
+    address = 'D:/USER/Desktop/软件工程/水尺7.jpg'
+    # address = image.path
     # 读取图像
     img = io.imread(address, as_grey=False)
     # 将图像灰度化处理
@@ -52,11 +52,12 @@ def get_calibration(image, max_num):
     bin_img =(edges_img <= thresh)*1.0
     scipy.misc.imsave('D:/USER/Desktop/软件工程/09二值化.jpg',bin_img)
     # 骨架提取
+    # skelet_img  = bin_img
     skelet_img = sm.skeletonize(bin_img)*1.0
     scipy.misc.imsave('D:/USER/Desktop/软件工程/10骨架提取.jpg', skelet_img)
     # 去除小于15个像素的线段
     dist = skelet_img > 0
-    label_image=sm.remove_small_objects(dist,min_size=15, connectivity=2)
+    label_image=sm.remove_small_objects(dist, min_size=15, connectivity=2)
     scipy.misc.imsave('D:/USER/Desktop/软件工程/11去除线段.jpg', label_image)
     # 旋转
     angle_img = transform.rotate(label_image, angle, resize=True)
@@ -82,3 +83,5 @@ def get_calibration(image, max_num):
     drafe = max_num - (draft_num*25)
     print("刻度:"+str(drafe))
     return drafe
+
+

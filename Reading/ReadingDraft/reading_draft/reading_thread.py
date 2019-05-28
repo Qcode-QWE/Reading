@@ -1,9 +1,9 @@
 from Reading.dao import Place_Dao
 import time
 from Reading.dao import Place_Dao
-
-
-# 调用reading_start即可每隔一分钟识别所有地点的水尺图像
+from Reading.service import Calibration_Service
+import threading
+# reading_start创建一个线程每隔一分钟识别所有地点的水尺图像
 
 # 获取每个地点的水尺刻度
 def reading_every_place():
@@ -15,7 +15,6 @@ def reading_every_place():
         Calibration_Service.get_calibration_last(place)
 
 def reading_start():
-    while True:
-        reading_every_place()
-        time.sleep(60)
+    timer = threading.Timer(60, reading_every_place)
+    timer.start()
 reading_start()

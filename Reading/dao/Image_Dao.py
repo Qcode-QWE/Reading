@@ -1,7 +1,6 @@
 from Reading.Utils import mysql
 from Reading.pojo import table
 
-
 # 将查询结果转化为Image对象
 def sqlToImage( rows ):
     list = []
@@ -38,6 +37,21 @@ def get_Image_By_Place_last( place ):
     cur.execute(sql)
     rows = cur.fetchall()
     p = sqlToImage(rows)[0]
+    cur.close()
+    con.close()
     return p
+
+# 插入图片
+def insert_image( image):
+    con = mysql.connect_wxremit_db()
+    cur = con.cursor()
+    sql = ("insert into image(shoot_time,place_id,path) " +
+           "values(%s,%s,%s)"
+           )
+    values = [image.shoot_time, image.place_id, image.path]
+    cur.execute(sql, values)
+    con.commit()
+    cur.close()
+    con.close()
 
 
