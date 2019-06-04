@@ -1,6 +1,6 @@
 from Reading.Utils import mysql
 from Reading.pojo import table
-
+from Reading.dao import Place_Dao
 
 # 将查询结果转化为Drainage对象
 def sql_To_Drainage( rows ):
@@ -24,7 +24,11 @@ def find_By_DrainageId( id ):
     con.close()
     return p
 
-p = find_By_DrainageId(1)
-print(p.toString())
-
-
+# 根据placeId获取水系
+def find_by_placeId(place):
+    placeId = place.place_id
+    place = Place_Dao.find_By_Place(placeId)
+    # 根据水系Id查询水系
+    drainageId = place.drainage_id
+    drainage = find_By_DrainageId(drainageId)
+    return drainage

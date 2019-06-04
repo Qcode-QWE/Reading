@@ -15,7 +15,7 @@ def get_calibration( image, place):
 # 获取place地点最近一次水尺图像,如果图像还没被识别则识别
 def get_calibration_last(place):
     # 获取该地点最近一次图像
-    image = Image_Dao.get_Image_By_Place_last(place)
+    image = Image_Dao.find_Image_By_Place_last(place)
     # 判断该图像是否已经被识别过
     calibration = Calibration_Dao.get_By_Image(image)
     # 还没被识别了

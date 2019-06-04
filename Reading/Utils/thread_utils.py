@@ -13,7 +13,6 @@ from Reading.dao import Image_Dao, Place_Dao
 # 创建一个线程每隔一分钟识别所有地点的水尺图像
 # 私有方法:获取每个地点的水尺刻度
 def __reading_every_place():
-    print("识别刻度")
     # 获取所有的地点
     places = Place_Dao.get_all_place()
     # 获取该地点最近一次的水尺刻度

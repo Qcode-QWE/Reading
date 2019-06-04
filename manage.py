@@ -2,7 +2,7 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
+from Reading.Utils import thread_utils
 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Reading.settings')
@@ -18,4 +18,7 @@ def main():
 
 
 if __name__ == '__main__':
+    # 程序启动时执行定时任务
+    # thread_utils.uploading_start()
+    # thread_utils.reading_start()
     main()
